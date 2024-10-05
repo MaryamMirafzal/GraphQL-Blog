@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { ApolloProvider , ApolloClient , InMemoryCache } from '@apollo/client'
 
 const client = new ApolloClient({
-  uri:"https://eu-west-2.cdn.hygraph.com/content/cm1t8eh2803sg08ujxun2na35/master",
+  uri: import.meta.env.VITE_GRAPHCMS_URI ,
   cache: new InMemoryCache(),
 })
 
