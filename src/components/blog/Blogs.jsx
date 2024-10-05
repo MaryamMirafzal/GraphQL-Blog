@@ -1,5 +1,7 @@
 import { useQuery } from "@apollo/client"
-import GET_BLOGS_INFO from "../../graphQL/queries"
+import {GET_BLOGS_INFO} from "../../graphQL/queries"
+import { Grid } from "@mui/material";
+import CardEl from "../shared/CardEl";
 
 function Blogs() {
     const { loading , data , error } = useQuery(GET_BLOGS_INFO)
@@ -7,7 +9,15 @@ function Blogs() {
     if(loading) return <h4>Loading...</h4>
     if(error) return <h4>Somthing went wrong...</h4>
   return (
-    <div>Blogs</div>
+    <Grid container spacing={2}>
+      {
+        data.posts.map( post =>
+          <Grid item xs={12} sm={6} md={4} key={post.id}>
+            <CardEl {...post} />
+          </Grid>
+        )
+      }
+    </Grid>
   )
 }
 
