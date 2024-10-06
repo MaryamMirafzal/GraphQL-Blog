@@ -28,11 +28,11 @@ function CardEl({title, coverPhoto, author ,slug}) {
         </CardContent>
         <Divider variant="middle" sx={{margin:"10px"}}/>
         <CardActions >
-            {/* <Link to={`/blogs/${slug}`} style={{textDecoration:"none"}}> */}
-               <Button variant="outlined" size="small" sx={{width:"100%", borderRadius: 3}}>
+            <Link to={`/blogs/${slug}`} style={{textDecoration:"none", width:'100%'}}>
+               <Button variant="outlined" size="small" sx={{width:'100%', borderRadius: 3}}>
                     مطالعه مقاله
                </Button>
-            {/* </Link> */}
+            </Link>
         </CardActions>
     </Card>
   )
