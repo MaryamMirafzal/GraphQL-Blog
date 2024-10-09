@@ -56,7 +56,7 @@ const GET_AUTHOR_INFO = gql`
 }
 ` 
 const Get_POST_INFO = gql`
-query getPostInfo($slug: String) {
+query getPostInfo($slug: String!) {
   post(where: {slug: $slug}) {
     author {
       avatar {
@@ -75,4 +75,13 @@ query getPostInfo($slug: String) {
   }
 }
 `
-export {GET_AUTHORS_INFO, GET_BLOGS_INFO, GET_AUTHOR_INFO , Get_POST_INFO}
+const GET_POST_COMMENTS = gql`
+  query getPostComments($slug: String! ){
+    comments( where: { post : {slug : $slug}}){
+      id
+      name
+      text
+    }
+  }
+`
+export {GET_AUTHORS_INFO, GET_BLOGS_INFO, GET_AUTHOR_INFO , Get_POST_INFO ,GET_POST_COMMENTS}
